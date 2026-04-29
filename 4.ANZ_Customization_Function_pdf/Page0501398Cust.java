@@ -50,8 +50,13 @@ public class Page0501398Cust extends Page0501398 {
 	protected List<String> msgNoSupport = Arrays.asList("111", "114");
 
 	protected void executeBtnOkCmd() {
+		Logger logger = Logger.getLogger("NameOfYourLogger");
+		logger.log(Level.SEVERE, "gnan7:" + Page05111.P05111_inputDs.getCurrentValue("COMPL_TYPE") + "gnantest:" + Page05111.P05111_inputDs.getCurrentValue("CHK_RESULT"));
+
 		try{
 			CIPSCommon.validateForm(CIPSCommon.getFormOfPage(Page05111, "frmBCXXCommon"),"交易信息检查不通过！");
+			logger.log(Level.SEVERE, "gnan8:" + Page05111.P05111_inputDs.getCurrentValue("COMPL_TYPE") + "gnantest:" + Page05111.P05111_inputDs.getCurrentValue("CHK_RESULT"));
+
 		}catch (Exception e) {
 			return;
 		}
@@ -234,12 +239,18 @@ public class Page0501398Cust extends Page0501398 {
 		btn2.setTitle("取消");
 		CIPSCommon.msgBox(promptWindow, info, inputDs, btn1, btn2);
 
+		Logger logger = Logger.getLogger("NameOfYourLogger");
+		logger.log(Level.SEVERE, "gnan a:" + Page05111.P05111_inputDs.getCurrentValue("COMPL_TYPE") + "gnantest:" + Page05111.P05111_inputDs.getCurrentValue("CHK_RESULT"));
+
+
 		btn1.addClickListener(new ClickListener(){
 			@Override
 			public void onClick(
 					com.gingkoo.gui.ui.component.client.events.ClickEvent event) {
 				confirmFlag = "2";
 				inputDs.setCurrentValue("CNMS_SEQ_NO", seqNo);
+				logger.log(Level.SEVERE, "gnan b:" + inputDs.getCurrentValue("CNMS_SEQ_NO"));
+
 				executeBtnOkCmd();
 				promptWindow.close();
 			}
@@ -251,11 +262,10 @@ public class Page0501398Cust extends Page0501398 {
 				if (flag) {
 					BTN_SUB_OK_Cmd.setHead("SRV_ID", "ANZ_MADE_CNCL");
 					inputDs.setCurrentValue("CNMS_SEQ_NO", seqNo);
+					logger.log(Level.SEVERE, "gnan c:" + inputDs.getCurrentValue("CNMS_SEQ_NO"));
 					BTN_SUB_OK_Cmd.execute(new CommandCallback() {
-
 						@Override
 						public void onCallback(boolean status, Callback callback, String commandItemName) {
-							// TODO Auto-generated method stub
 						}
 					});
 				}
@@ -606,64 +616,7 @@ public class Page0501398Cust extends Page0501398 {
 		frmBCXX_COMPL_TYPE.addValueChangedListener(frmBCXX_COMPL_TYPE_Listener);
 
 
-		this.BTN_SUB_OK.addClickListener(new ClickListener(){
-			@Override
-			public void onClick(ClickEvent event) {
 
-				/*//转汇交易判断是否修改了原交易
-				if (Page05111.P05111_inputDs.getCurrentValue("DBTR_NAME").equals(Page05111.P05111_inputDs.getCurrentValue("DBTR_NAME")))//付款人账户账号
-					*//*	 &&inputDs.getCurrentValue("DBTR_NAME").equals(queryDs.getCurrentValue("DBTR_NAME")) &&//付款人名称
-						inputDs.getCurrentValue("DBTR_ADR_ADR_LINE1").equals(queryDs.getCurrentValue("DBTR_ADR_ADR_LINE1")) &&//付款人自由格式地址
-						inputDs.getCurrentValue("DBTR_ADR_ADR_LINE2").equals(queryDs.getCurrentValue("DBTR_ADR_ADR_LINE2")) &&
-						//inputDs.getCurrentValue("PAYER_BRNO").equals(queryDs.getCurrentValue("PAYER_BRNO")) &&//付款间接参与者行号 V3.0不再支持
-						//inputDs.getCurrentValue("PAYER_BRNAME").equals(queryDs.getCurrentValue("PAYER_BRNAME")) &&
-						inputDs.getCurrentValue("DBTR_AGT_CLR_SYS_MMBID").equals(queryDs.getCurrentValue("DBTR_AGT_CLR_SYS_MMBID")) &&//付款人开户行行号     付款人开户行_清算系统内的身份编码
-						inputDs.getCurrentValue("DBTR_AGT_NAME").equals(queryDs.getCurrentValue("DBTR_AGT_NAME")) &&//付款人开户行_机构名称
-						inputDs.getCurrentValue("CDTR_AC_ID").equals(queryDs.getCurrentValue("CDTR_AC_ID")) &&//收款人账户_账号
-						inputDs.getCurrentValue("CDTR_NAME").equals(queryDs.getCurrentValue("CDTR_NAME")) &&//收款人名称
-						inputDs.getCurrentValue("CDTR_ADR_ADR_LINE1").equals(queryDs.getCurrentValue("CDTR_ADR_ADR_LINE1")) &&//收款人自由格式地址
-						inputDs.getCurrentValue("CDTR_ADR_ADR_LINE2").equals(queryDs.getCurrentValue("CDTR_ADR_ADR_LINE2")) &&
-						//inputDs.getCurrentValue("PAYEE_BRNO").equals(queryDs.getCurrentValue("PAYEE_BRNO")) &&//收款间接参与者行号  V3.0不再支持
-						//inputDs.getCurrentValue("PAYEE_BRNAME").equals(queryDs.getCurrentValue("PAYEE_BRNAME")) &&
-						inputDs.getCurrentValue("CDTR_AGT_CLR_SYS_MMBID").equals(queryDs.getCurrentValue("CDTR_AGT_CLR_SYS_MMBID")) &&//收款人开户行_清算系统内的身份编码
-						inputDs.getCurrentValue("CDTR_AGT_NAME").equals(queryDs.getCurrentValue("CDTR_AGT_NAME")) &&//收款人开户行_机构名称
-						inputDs.getCurrentValue("RMT_INF").equals(queryDs.getCurrentValue("RMT_INF")) &&//附言
-						inputDs.getCurrentValue("IM_AGT1_CLR_SYS_MMBID").equals(queryDs.getCurrentValue("IM_AGT1_CLR_SYS_MMBID")) &&//中介机构1_清算系统内的身份编码
-						inputDs.getCurrentValue("IM_AGT1_NAME").equals(queryDs.getCurrentValue("IM_AGT1_NAME")) &&//中介机构1_机构名称
-						inputDs.getCurrentValue("IM_AGT2_CLR_SYS_MMBID").equals(queryDs.getCurrentValue("IM_AGT2_CLR_SYS_MMBID")) &&//中介机构2_清算系统内的身份编码
-						inputDs.getCurrentValue("IM_AGT2_NAME").equals(queryDs.getCurrentValue("IM_AGT2_NAME"))) //中介机构2_机构名称*//*
-				{
-					isMod = "0";
-					//UPrompt.alert("提示", "2");测试成功
-				} else {
-					isMod = "1";
-					//UPrompt.alert("提示", Page05111.P05111_inputDs.getCurrentValue("DBTR_NAME"));测试成功
-				}*/
-
-				System.out.println("isMod=" + isMod);
-				// 转汇重新扫描
-				/*if ("5".equals(Page05111.P05111_inputDs.getCurrentValue("COMPL_TYPE")) || !Page05111.P05111_inputDs.getCurrentValue("CHK_RESULT").contains("黑名单命中")) {*/
-				if ("5".equals(Page05111.P05111_inputDs.getCurrentValue("COMPL_TYPE")) ) {
-					UPrompt.alert("提示", Page05111.P05111_inputDs.getCurrentValue("COMPL_TYPE"));
-					UPrompt.alert("提示", Page05111.P05111_inputDs.getCurrentValue("CHK_RESULT"));
-					executeBtnOkCmd();
-				} else {
-
-					confirm(Page05111.P05111_inputDs.getCurrentValue("CHK_RESULT"), Page05111.P05111_inputDs.getCurrentValue("CNMS_SEQ_NO"), false);
-					UPrompt.alert("提示", "6");
-				}
-				UPrompt.alert("提示", "7");
-
-
-			}
-		});
-		this.BTN_SUB_CLOSE.addClickListener(new ClickListener(){
-			@Override
-			public void onClick(ClickEvent event) {
-				CIPSCommon.getWindowOfPage(Page0501398Cust.this, "detailSw111").hide();
-				//CIPSCommon.getWindowOfPage(Page0501398Cust.this, "detailSw114").hide();
-			}
-		});
 
 		frmBCXX_CUST_ACTNO_Listener = new ValueChangedListener("CUST_ACTNO") {
 			@Override
@@ -734,7 +687,7 @@ public class Page0501398Cust extends Page0501398 {
 			@Override
 			public void onClick(ClickEvent event) {
 				//关闭当前子窗体
-								detailSwCommon.hide();
+				detailSwCommon.hide();
 			}
 		});
 
@@ -772,6 +725,50 @@ public class Page0501398Cust extends Page0501398 {
 		};
 		page114.frmBCXXCommon_COMPL_TYPE.addValueChangedListener(frmBCXXCommon_COMPL_TYPE_Listener);
 
+		for (String msgNo : msgNoSupport) {
+			CIPSCommon.getButtonOfPage(page, "BTN_SUB_CLOSE" + msgNo).addClickListener(new ClickListener() {
+				@Override
+				public void onClick(ClickEvent event) {
+					CIPSCommon.getWindowOfPage(page, "detailSw" + msgNo).hide();
+				}
+			});
+
+			CIPSCommon.getButtonOfPage(page, "BTN_SUB_OK" + msgNo).addClickListener(new ClickListener() {
+				@Override
+				public void onClick(ClickEvent event) {
+					System.out.println("isMod=" + isMod);
+					//测试
+					Logger logger = Logger.getLogger("NameOfYourLogger");
+					logger.log(Level.SEVERE, "gnan:" + Page05111.P05111_inputDs.getCurrentValue("COMPL_TYPE") + "gnantest:" + Page05111.P05111_inputDs.getCurrentValue("CHK_RESULT"));//获取到值了
+					//测试结束
+					//start
+					//转汇交易判断是否修改了原交易
+					if (Page05111.P05111_inputDs.getCurrentValue("DBTR_NAME").equals(Page05111.P05111_inputDs.getCurrentValue("DBTR_NAME"))) {//付款人账户账号
+						isMod = "0";
+						logger.log(Level.SEVERE, "gnan1:" + Page05111.P05111_inputDs.getCurrentValue("DBTR_NAME"));
+
+					} else {
+						isMod = "1";
+						logger.log(Level.SEVERE, "gnan2:" + Page05111.P05111_inputDs.getCurrentValue("DBTR_NAME"));
+
+					}
+					System.out.println("isMod=" + isMod);
+					logger.log(Level.SEVERE, "gnan3:" + isMod);
+					logger.log(Level.SEVERE, "gnan4:" + Page05111.P05111_inputDs.getCurrentValue("COMPL_TYPE") + "gnantest:" + "5".equals(Page05111.P05111_inputDs.getCurrentValue("COMPL_TYPE"))
+							+ "gnantest:" +!Page05111.P05111_inputDs.getCurrentValue("CHK_RESULT").contains("黑名单命中"));//获取到值了
+					// 转汇重新扫描
+					if ("5".equals(Page05111.P05111_inputDs.getCurrentValue("COMPL_TYPE")) || !Page05111.P05111_inputDs.getCurrentValue("CHK_RESULT").contains("黑名单命中")) {
+						logger.log(Level.SEVERE, "gnan5:" + Page05111.P05111_inputDs.getCurrentValue("COMPL_TYPE") + "gnantest:" + Page05111.P05111_inputDs.getCurrentValue("CHK_RESULT"));//获取到值了
+						executeBtnOkCmd();
+					} else {
+						logger.log(Level.SEVERE, "gnan6:" + Page05111.P05111_inputDs.getCurrentValue("COMPL_TYPE") + "gnantest:" + Page05111.P05111_inputDs.getCurrentValue("CHK_RESULT"));//获取到值了
+						confirm(Page05111.P05111_inputDs.getCurrentValue("CHK_RESULT"),Page05111.P05111_inputDs.getCurrentValue("CNMS_SEQ_NO"),false);//测试通过20260426 10：30
+					}
+					//end
+				}
+
+			});
+		}
 	}
 
 
@@ -782,7 +779,7 @@ public class Page0501398Cust extends Page0501398 {
 		List<BaseConfig> postComponents111 = new ArrayList<>();
 		List<BaseConfig> postComponents114 = new ArrayList<>();
 
-		postComponents111.add(CIPSCommon.buildButtonGroup("buttonGroup111", new CIPSCommon.IdAndNamePair("BTN_SUB_OK", "确认"), new CIPSCommon.IdAndNamePair("BTN_SUB_CLOSE", "关闭啦")));
+		postComponents111.add(CIPSCommon.buildButtonGroup("buttonGroup111", new CIPSCommon.IdAndNamePair("BTN_SUB_OK111", "确认"), new CIPSCommon.IdAndNamePair("BTN_SUB_CLOSE111", "关闭啦")));
 		postComponents114.add(CIPSCommon.buildButtonGroup("buttonGroup114", new CIPSCommon.IdAndNamePair("BTN_SUB_OK114", "确认"), new CIPSCommon.IdAndNamePair("BTN_SUB_CLOSE114", "关闭")));
 
 		CIPSCommon.mergeRefPageConfig(config, Page05111, "detailSw111", "客户汇款", new ArrayList<>(), postComponents111);
