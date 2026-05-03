@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.004.001.09">
+    <PmtRtr>
+        <GrpHdr>
+            <MsgId>2020070100000001</MsgId>
+            <CreDtTm>2020-07-01T09:25:00.000+08:00</CreDtTm>
+            <NbOfTxs>1</NbOfTxs>
+            <SttlmInf>
+                <SttlmMtd>CLRG</SttlmMtd>
+            </SttlmInf>
+        </GrpHdr>
+        <TxInf>
+            <RtrId>returnId</RtrId>
+            <OrgnlGrpInf>
+                <OrgnlMsgId>2020063000000001</OrgnlMsgId>
+                <OrgnlMsgNmId>cips.111.001.05</OrgnlMsgNmId>
+                <OrgnlCreDtTm>2020-07-01T09:01:00.000+08:00</OrgnlCreDtTm>
+            </OrgnlGrpInf>
+            <OrgnlInstrId>OriginReference</OrgnlInstrId>
+            <OrgnlEndToEndId>pacs008EndToEndId-001</OrgnlEndToEndId>
+            <OrgnlTxId>2020070100000001</OrgnlTxId>
+            <OrgnlUETR>7a562c67-ca16-48ba-b074-65581be6f001</OrgnlUETR>
+            <OrgnlClrSysRef>C0210db486e0e54475081987af48bda8951</OrgnlClrSysRef>
+            <OrgnlIntrBkSttlmAmt Ccy="CNY">1500000.00</OrgnlIntrBkSttlmAmt>
+            <OrgnlIntrBkSttlmDt>2020-07-01</OrgnlIntrBkSttlmDt>
+            <RtrdIntrBkSttlmAmt Ccy='CNY'>1500000.00</RtrdIntrBkSttlmAmt>
+            <IntrBkSttlmDt>2020-07-01</IntrBkSttlmDt>
+            <SttlmPrty>URGT</SttlmPrty>
+            <SttlmTmIndctn>
+                <DbtDtTm>2020-07-01T15:00:00</DbtDtTm>
+            </SttlmTmIndctn>
+            <RtrdInstdAmt Ccy="CNY">1500000.00</RtrdInstdAmt>
+            <ChrgBr>DEBT</ChrgBr>
+            <ChrgsInf>
+                <Amt Ccy="HKD">1.01</Amt>
+                <Agt>
+                    <FinInstnId>
+                        <BICFI>MYMBGB1LXXX</BICFI>
+                        <ClrSysMmbId>
+                            <ClrSysId>
+                                <Cd>CNCIP</Cd>
+                            </ClrSysId>
+                            <MmbId>GB000000001</MmbId>
+                        </ClrSysMmbId>
+                        <LEI>5493002CHU7EB2FBNI01</LEI>
+                        <Nm>样例名称</Nm>
+                        <PstlAdr>
+                            <Dept>Dept1</Dept>
+                            <SubDept>SubDept1</SubDept>
+                            <StrtNm>Street Name</StrtNm>
+                            <BldgNb>No 1</BldgNb>
+                            <BldgNm>Bld Name</BldgNm>
+                            <Flr>20F</Flr>
+                            <PstBx>Box 1</PstBx>
+                            <Room>101</Room>
+                            <PstCd>200000</PstCd>
+                            <TwnNm>Shanghai</TwnNm>
+                            <DstrctNm>地区</DstrctNm>
+                            <CtrySubDvsn>上海市</CtrySubDvsn>
+                            <Ctry>CN</Ctry>
+                            <AdrLine>自由地址</AdrLine>
+                        </PstlAdr>
+                    </FinInstnId>
+                </Agt>
+            </ChrgsInf>
+            <InstgAgt>
+                <FinInstnId>
+                    <BICFI>PCBCCNBJXXX</BICFI>
+                    <ClrSysMmbId>
+                        <ClrSysId>
+                            <Cd>CNCIP</Cd>
+                        </ClrSysId>
+                        <MmbId>CN000000002</MmbId>
+                    </ClrSysMmbId>
+                    <LEI>5493002CHU7EB2FBNI02</LEI>
+                </FinInstnId>
+            </InstgAgt>
+            <InstdAgt>
+                <FinInstnId>
+                    <BICFI>CMBCCNBSXXX</BICFI>
+                    <ClrSysMmbId>
+                        <ClrSysId>
+                            <Cd>CNCIP</Cd>
+                        </ClrSysId>
+                        <MmbId>CN000000003</MmbId>
+                    </ClrSysMmbId>
+                    <LEI>5493002CHU7EB2FBNI03</LEI>
+                </FinInstnId>
+            </InstdAgt>
+            <RtrChain>
+                <UltmtDbtr>
+                    <Pty>
+                        <Nm>最终付款方名称</Nm>
+                        <PstlAdr>
+                            <Dept>Dept1</Dept>
+                            <SubDept>SubDept1</SubDept>
+                            <StrtNm>Street Name1</StrtNm>
+                            <BldgNb>No 1</BldgNb>
+                            <BldgNm>Bld Name1</BldgNm>
+                            <Flr>20F</Flr>
+                            <PstBx>Box 1</PstBx>
+                            <Room>101</Room>
+                            <PstCd>200000</PstCd>
+                            <TwnNm>Shanghai</TwnNm>
+                            <DstrctNm>地区</DstrctNm>
+                            <CtrySubDvsn>上海市</CtrySubDvsn>
+                            <Ctry>CN</Ctry>
+                            <AdrLine>自由地址</AdrLine>
+                        </PstlAdr>
+                        <Id>
+                            <OrgId>
+                                <AnyBIC>PCBCCNSHXXX</AnyBIC>
+                                <LEI>5493002CHU7EB2FBNI16</LEI>
+                                <Othr>
+                                    <Id>CN0000000019</Id>
+                                    <SchmeNm>
+                                        <Cd>CHID</Cd>
+                                    </SchmeNm>
+                                    <Issr>CNCIP</Issr>
+                                </Othr>
+                            </OrgId>
+                        </Id>
+                        <CtryOfRes>CN</CtryOfRes>
+                    </Pty>
+                </UltmtDbtr>
+                <Dbtr>
+                    <Pty>
+                        <Nm>付款人</Nm>
+                        <PstlAdr>
+                            <Dept>Dept1</Dept>
+                            <SubDept>SubDept1</SubDept>
+                            <StrtNm>Street Name1</StrtNm>
+                            <BldgNb>No 1</BldgNb>
+                            <BldgNm>Bld Name1</BldgNm>
+                            <Flr>20F</Flr>
+                            <PstBx>Box 1</PstBx>
+                            <Room>101</Room>
+                            <PstCd>200000</PstCd>
+                            <TwnNm>Shanghai</TwnNm>
+                            <DstrctNm>地区</DstrctNm>
+                            <CtrySubDvsn>上海市</CtrySubDvsn>
+                            <Ctry>CN</Ctry>
+                            <AdrLine>自由地址</AdrLine>
+                        </PstlAdr>
+                    </Pty>
+                </Dbtr>
+                <InitgPty>
+                    <Pty>
+                        <Nm>发起方名称</Nm>
+                        <PstlAdr>
+                            <Dept>Dept1</Dept>
+                            <SubDept>SubDept1</SubDept>
+                            <StrtNm>Street Name1</StrtNm>
+                            <BldgNb>No 1</BldgNb>
+                            <BldgNm>Bld Name1</BldgNm>
+                            <Flr>20F</Flr>
+                            <PstBx>Box 1</PstBx>
+                            <Room>101</Room>
+                            <PstCd>200000</PstCd>
+                            <TwnNm>Shanghai</TwnNm>
+                            <DstrctNm>地区</DstrctNm>
+                            <CtrySubDvsn>上海市</CtrySubDvsn>
+                            <Ctry>CN</Ctry>
+                            <AdrLine>自由地址</AdrLine>
+                        </PstlAdr>
+                        <Id>
+                            <OrgId>
+                                <AnyBIC>PCBCCNSHXXX</AnyBIC>
+                                <LEI>5493002CHU7EB2FBNI16</LEI>
+                                <Othr>
+                                    <Id>CN0000000019</Id>
+                                    <SchmeNm>
+                                        <Cd>CHID</Cd>
+                                    </SchmeNm>
+                                    <Issr>CNCIP</Issr>
+                                </Othr>
+                            </OrgId>
+                        </Id>
+                        <CtryOfRes>CN</CtryOfRes>
+                    </Pty>
+                </InitgPty>
+                <DbtrAgt>
+                    <FinInstnId>
+                        <BICFI>MYMBGB1LXXX</BICFI>
+                        <ClrSysMmbId>
+                            <ClrSysId>
+                                <Cd>CNCIP</Cd>
+                            </ClrSysId>
+                            <MmbId>GB000000001</MmbId>
+                        </ClrSysMmbId>
+                        <LEI>5493002CHU7EB2FBNI01</LEI>
+                    </FinInstnId>
+                </DbtrAgt>
+                <PrvsInstgAgt1>
+                    <FinInstnId>
+                        <BICFI>MYMBGB3LXXX</BICFI>
+                        <ClrSysMmbId>
+                            <ClrSysId>
+                                <Cd>CNCIP</Cd>
+                            </ClrSysId>
+                            <MmbId>GB000000003</MmbId>
+                        </ClrSysMmbId>
+                        <LEI>5493002CHU7EB2FBNI03</LEI>
+                        <Nm>样例名称1</Nm>
+                        <PstlAdr>
+                            <Dept>Dept1</Dept>
+                            <SubDept>SubDept1</SubDept>
+                            <StrtNm>Street Name1</StrtNm>
+                            <BldgNb>No 1</BldgNb>
+                            <BldgNm>Bld Name1</BldgNm>
+                            <Flr>20F</Flr>
+                            <PstBx>Box 1</PstBx>
+                            <Room>101</Room>
+                            <PstCd>200000</PstCd>
+                            <TwnNm>Shanghai</TwnNm>
+                            <DstrctNm>地区</DstrctNm>
+                            <CtrySubDvsn>上海市</CtrySubDvsn>
+                            <Ctry>CN</Ctry>
+                            <AdrLine>自由地址</AdrLine>
+                        </PstlAdr>
+                    </FinInstnId>
+                </PrvsInstgAgt1>
+                <PrvsInstgAgt2>
+                    <FinInstnId>
+                        <BICFI>MYMBGB4LXXX</BICFI>
+                        <ClrSysMmbId>
+                            <ClrSysId>
+                                <Prtry>CNCIP</Prtry>
+                            </ClrSysId>
+                            <MmbId>GB000000004</MmbId>
+                        </ClrSysMmbId>
+                        <LEI>5493002CHU7EB2FBNI04</LEI>
+                        <Nm>样例名称2</Nm>
+                        <PstlAdr>
+                            <Dept>Dept2</Dept>
+                            <SubDept>SubDept2</SubDept>
+                            <StrtNm>Street Name2</StrtNm>
+                            <BldgNb>No 2</BldgNb>
+                            <BldgNm>Bld Name2</BldgNm>
+                            <Flr>21F</Flr>
+                            <PstBx>Box 2</PstBx>
+                            <Room>102</Room>
+                            <PstCd>200001</PstCd>
+                            <TwnNm>Shanghai</TwnNm>
+                            <DstrctNm>地区</DstrctNm>
+                            <CtrySubDvsn>上海市</CtrySubDvsn>
+                            <Ctry>CN</Ctry>
+                            <AdrLine>自由地址</AdrLine>
+                        </PstlAdr>
+                    </FinInstnId>
+                </PrvsInstgAgt2>
+                <PrvsInstgAgt3>
+                    <FinInstnId>
+                        <BICFI>MYMBGB5LXXX</BICFI>
+                        <ClrSysMmbId>
+                            <ClrSysId>
+                                <Prtry>CNCIP</Prtry>
+                            </ClrSysId>
+                            <MmbId>GB000000005</MmbId>
+                        </ClrSysMmbId>
+                        <LEI>5493002CHU7EB2FBNI05</LEI>
+                        <Nm>样例名称3</Nm>
+                        <PstlAdr>
+                            <Dept>Dept3</Dept>
+                            <SubDept>SubDept3</SubDept>
+                            <StrtNm>Street Name3</StrtNm>
+                            <BldgNb>No 3</BldgNb>
+                            <BldgNm>Bld Name3</BldgNm>
+                            <Flr>21F</Flr>
+                            <PstBx>Box 3</PstBx>
+                            <Room>103</Room>
+                            <PstCd>200002</PstCd>
+                            <TwnNm>Shanghai</TwnNm>
+                            <DstrctNm>地区</DstrctNm>
+                            <CtrySubDvsn>上海市</CtrySubDvsn>
+                            <Ctry>CN</Ctry>
+                            <AdrLine>自由地址</AdrLine>
+                        </PstlAdr>
+                        <Othr>
+                            <Id>MYMBGB6LXXX</Id>
+                            <SchmeNm>
+                                <Prtry>CIPSIDP</Prtry>
+                            </SchmeNm>
+                        </Othr>
+                    </FinInstnId>
+                </PrvsInstgAgt3>
+                <IntrmyAgt1>
+                    <FinInstnId>
+                        <BICFI>RZBRROBUXXX</BICFI>
+                        <ClrSysMmbId>
+                            <ClrSysId>
+                                <Cd>CNCIP</Cd>
+                            </ClrSysId>
+                            <MmbId>RO000000007</MmbId>
+                        </ClrSysMmbId>
+                        <LEI>5493002CHU7EB2FBNI07</LEI>
+                        <Nm>中介机构1</Nm>
+                        <PstlAdr>
+                            <Dept>Dept1</Dept>
+                            <SubDept>SubDept1</SubDept>
+                            <StrtNm>Street Name1</StrtNm>
+                            <BldgNb>No 1</BldgNb>
+                            <BldgNm>Bld Name1</BldgNm>
+                            <Flr>20F</Flr>
+                            <PstBx>Box 1</PstBx>
+                            <Room>101</Room>
+                            <PstCd>200000</PstCd>
+                            <TwnNm>Shanghai</TwnNm>
+                            <DstrctNm>地区</DstrctNm>
+                            <CtrySubDvsn>上海市</CtrySubDvsn>
+                            <Ctry>CN</Ctry>
+                            <AdrLine>自由地址</AdrLine>
+                        </PstlAdr>
+                        <Othr>
+                            <Id>MYMBGB8LXXX</Id>
+                            <SchmeNm>
+                                <Prtry>CIPSIDP</Prtry>
+                            </SchmeNm>
+                        </Othr>
+                    </FinInstnId>
+                </IntrmyAgt1>
+                <IntrmyAgt2>
+                    <FinInstnId>
+                        <BICFI>RZBRROAUXXX</BICFI>
+                        <ClrSysMmbId>
+                            <ClrSysId>
+                                <Cd>CNCIP</Cd>
+                            </ClrSysId>
+                            <MmbId>RO000000009</MmbId>
+                        </ClrSysMmbId>
+                        <LEI>5493002CHU7EB2FBNI09</LEI>
+                        <Nm>中介机构2</Nm>
+                        <PstlAdr>
+                            <Dept>Dept2</Dept>
+                            <SubDept>SubDept2</SubDept>
+                            <StrtNm>Street Name2</StrtNm>
+                            <BldgNb>No 2</BldgNb>
+                            <BldgNm>Bld Name2</BldgNm>
+                            <Flr>22F</Flr>
+                            <PstBx>Box 2</PstBx>
+                            <Room>102</Room>
+                            <PstCd>200002</PstCd>
+                            <TwnNm>Shanghai</TwnNm>
+                            <DstrctNm>地区</DstrctNm>
+                            <CtrySubDvsn>上海市</CtrySubDvsn>
+                            <Ctry>CN</Ctry>
+                            <AdrLine>自由地址</AdrLine>
+                        </PstlAdr>
+                    </FinInstnId>
+                </IntrmyAgt2>
+                <IntrmyAgt3>
+                    <FinInstnId>
+                        <BICFI>RZBRROCUXXX</BICFI>
+                        <ClrSysMmbId>
+                            <ClrSysId>
+                                <Cd>CNCIP</Cd>
+                            </ClrSysId>
+                            <MmbId>RO000000010</MmbId>
+                        </ClrSysMmbId>
+                        <LEI>5493002CHU7EB2FBNI10</LEI>
+                        <Nm>中介机构名称3</Nm>
+                        <PstlAdr>
+                            <Dept>Dept3</Dept>
+                            <SubDept>SubDept3</SubDept>
+                            <StrtNm>Street Name3</StrtNm>
+                            <BldgNb>No 3</BldgNb>
+                            <BldgNm>Bld Name3</BldgNm>
+                            <Flr>23F</Flr>
+                            <PstBx>Box 3</PstBx>
+                            <Room>103</Room>
+                            <PstCd>200003</PstCd>
+                            <TwnNm>Shanghai</TwnNm>
+                            <DstrctNm>地区</DstrctNm>
+                            <CtrySubDvsn>上海市</CtrySubDvsn>
+                            <Ctry>CN</Ctry>
+                            <AdrLine>自由地址</AdrLine>
+                        </PstlAdr>
+                    </FinInstnId>
+                </IntrmyAgt3>
+                <CdtrAgt>
+                    <FinInstnId>
+                        <BICFI>GEBABEBBXXX</BICFI>
+                        <ClrSysMmbId>
+                            <ClrSysId>
+                                <Cd>CNCIP</Cd>
+                            </ClrSysId>
+                            <MmbId>BE000000011</MmbId>
+                        </ClrSysMmbId>
+                        <LEI>5493002CHU7EB2FBNI11</LEI>
+                    </FinInstnId>
+                </CdtrAgt>
+                <Cdtr>
+                    <Agt>
+                        <FinInstnId>
+                            <BICFI>MYMBHK1LXXX</BICFI>
+                            <ClrSysMmbId>
+                                <ClrSysId>
+                                    <Cd>CNCIP</Cd>
+                                </ClrSysId>
+                                <MmbId>HK000000012</MmbId>
+                            </ClrSysMmbId>
+                            <LEI>5493002CHU7EB2FBNI12</LEI>
+                            <Nm>样例名称</Nm>
+                            <PstlAdr>
+                                <Dept>Dept1</Dept>
+                                <SubDept>SubDept1</SubDept>
+                                <StrtNm>Street Name</StrtNm>
+                                <BldgNb>No 1</BldgNb>
+                                <BldgNm>Bld Name</BldgNm>
+                                <Flr>20F</Flr>
+                                <PstBx>Box 1</PstBx>
+                                <Room>101</Room>
+                                <PstCd>200000</PstCd>
+                                <TwnNm>Shanghai</TwnNm>
+                                <DstrctNm>地区</DstrctNm>
+                                <CtrySubDvsn>上海市</CtrySubDvsn>
+                                <Ctry>CN</Ctry>
+                                <AdrLine>自由地址</AdrLine>
+                            </PstlAdr>
+                        </FinInstnId>
+                    </Agt>
+                </Cdtr>
+                <UltmtCdtr>
+                    <Pty>
+                        <Nm>最终收款方名称</Nm>
+                        <PstlAdr>
+                            <Dept>Dept1</Dept>
+                            <SubDept>SubDept1</SubDept>
+                            <StrtNm>Street Name1</StrtNm>
+                            <BldgNb>No 1</BldgNb>
+                            <BldgNm>Bld Name1</BldgNm>
+                            <Flr>20F</Flr>
+                            <PstBx>Box 1</PstBx>
+                            <Room>101</Room>
+                            <PstCd>200000</PstCd>
+                            <TwnNm>Shanghai</TwnNm>
+                            <DstrctNm>地区</DstrctNm>
+                            <CtrySubDvsn>上海市</CtrySubDvsn>
+                            <Ctry>CN</Ctry>
+                            <AdrLine>自由地址</AdrLine>
+                        </PstlAdr>
+                        <Id>
+                            <OrgId>
+                                <AnyBIC>PCBCCNGDXXX</AnyBIC>
+                                <LEI>5493002CHU7EB2FBNI20</LEI>
+                                <Othr>
+                                    <Id>CN0000000020</Id>
+                                    <SchmeNm>
+                                        <Cd>CHID</Cd>
+                                    </SchmeNm>
+                                    <Issr>CNCIP</Issr>
+                                </Othr>
+                            </OrgId>
+                        </Id>
+                        <CtryOfRes>CN</CtryOfRes>
+                    </Pty>
+                </UltmtCdtr>
+            </RtrChain>
+            <RtrRsnInf>
+                <Orgtr>
+                    <Nm>退汇发起方名称</Nm>
+                    <PstlAdr>
+                        <Dept>Dept1</Dept>
+                        <SubDept>SubDept1</SubDept>
+                        <StrtNm>Street Name1</StrtNm>
+                        <BldgNb>No 1</BldgNb>
+                        <BldgNm>Bld Name1</BldgNm>
+                        <Flr>20F</Flr>
+                        <PstBx>Box 1</PstBx>
+                        <Room>101</Room>
+                        <PstCd>200000</PstCd>
+                        <TwnNm>Shanghai</TwnNm>
+                        <DstrctNm>地区</DstrctNm>
+                        <CtrySubDvsn>上海市</CtrySubDvsn>
+                        <Ctry>CN</Ctry>
+                        <AdrLine>自由地址</AdrLine>
+                    </PstlAdr>
+                </Orgtr>
+                <Rsn>
+                    <Cd>AC01</Cd>
+                </Rsn>
+                <AddtlInf>
+                    额外信息
+                </AddtlInf>
+            </RtrRsnInf>
+            <OrgnlTxRef>
+                <PmtTpInf>
+                    <CtgyPurp>
+                        <Prtry>GODX</Prtry>
+                    </CtgyPurp>
+                </PmtTpInf>
+            </OrgnlTxRef>
+        </TxInf>
+    </PmtRtr>
+</Document>		

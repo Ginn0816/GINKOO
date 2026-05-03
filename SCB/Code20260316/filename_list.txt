@@ -1,0 +1,14 @@
+ACTIVE_ACTIVE_DDL.sql
+ACTIVE_ACTIVE_DML.sql
+ACTIVE_ACTIVE_DML2.sql
+dml_wmq.sql
+dy
+filename_list.txt
+G_FUNS.sql
+G_INQ_CFG.sql
+G_SERVICES.sql
+lx
+SCHEDULED_TASK_DML.sql
+VIP_ROUTING_DDL.sql
+VIP_ROUTING_DML.sql
+wmq

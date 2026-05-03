@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Document xmlns="urn:cips:std:cips:2025:tech:xsd:cips.902.001.02">
+    <AdmstnPrtryMsg>
+        <MsgId>
+            <Ref>2020070100000001</Ref>
+        </MsgId>
+        <PrtryData>
+            <Tp>cips.902.001.02</Tp>
+            <Data>
+                <Ccy Ccy='CNY'>
+                    <AuthrtyInf>
+                        <InitPtcpt>PCBCCNBJXXX</InitPtcpt>
+                        <SndBizAuthrtyInf>
+                            <MT>cips.111.001.05</MT>
+                            <MT>cips.112.001.05</MT>
+                        </SndBizAuthrtyInf>
+                        <RcvBizAuthrtyInf>
+                            <MT>cips.111.001.05</MT>
+                            <MT>cips.112.001.05</MT>
+                        </RcvBizAuthrtyInf>
+                    </AuthrtyInf>
+                </Ccy>
+				<Ccy Ccy='HKD'>
+					<AuthrtyInf>
+						<InitPtcpt>PCBCCNBJXXX</InitPtcpt>
+						<SndBizAuthrtyInf>
+							<MT>cips.111.001.05</MT>
+							<MT>cips.112.001.05</MT>
+						</SndBizAuthrtyInf>
+						<RcvBizAuthrtyInf>
+							<MT>cips.111.001.05</MT>
+							<MT>cips.112.001.05</MT>
+						</RcvBizAuthrtyInf>
+					</AuthrtyInf>
+				</Ccy>
+				<Ccy Ccy='AAA'>
+					<AuthrtyInf>
+						<InitPtcpt>PCBCCNBJXXX</InitPtcpt>
+						<SndBizAuthrtyInf>
+							<MT>cips.301.001.02</MT>
+						</SndBizAuthrtyInf>
+						<RcvBizAuthrtyInf>
+							<MT>cips.301.001.02</MT>
+						</RcvBizAuthrtyInf>
+					</AuthrtyInf>
+				</Ccy>
+            </Data>
+        </PrtryData>
+    </AdmstnPrtryMsg>
+</Document>
