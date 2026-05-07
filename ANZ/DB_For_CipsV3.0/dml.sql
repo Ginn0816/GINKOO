@@ -112,6 +112,45 @@ WHERE
 ORDER BY
 	a.TXN_SEQ_NO DESC', null, 'CIPS', null, null, null, null, null, null, null, null);
 COMMIT;
+--来账补充授权
+DELETE from G_INQ_CFG where SQL_ID = '050179801';
+INSERT INTO G_INQ_CFG (CORP_ID, SQL_ID, SQL_STRING, DETAIL_SQL_STRING, SYSTEM, REMARKS, UPD_TIME, CRT_TIME, RSV1, RSV2, RSV3, RSV4, RSV5) VALUES ('ANZ', '050179801', 'SELECT
+	a.TXN_SEQ_NO,
+	a.MSG_NO,
+	a.CENTER_DATE,
+	a.TXN_DIR,
+	a.MSG_ID,
+	a.AMT,
+	a.PBOC_STATUS,
+	a.COMM_STATUS,
+	a.PAYER_ACTNO,
+	a.PAYER_NAME,
+	a.PAYEE_ACTNO,
+	a.PAYEE_NAME,
+	a.SND_ST_BRNO AS OP_ST_BRNO,
+	a.SND_ST_BRNAME AS OP_ST_BRNAME,
+	a.ORG_ID,
+	a.TXN_STATUS,
+	a.MADE_USER,
+	a.CHK_USER 
+FROM
+	CIPS_TXN a 
+	LEFT JOIN CIPS_114 b ON a.TXN_SEQ_NO=b.TXN_SEQ_NO
+WHERE
+	a.TXN_DIR = ''2'' 
+	AND (a.msg_no = ''111'' OR ( a.MSG_NO = ''114'' AND b.ORGNL_MSG_NM_ID IN (''cips.111.001.02'', ''cips.111.001.02'')))
+	AND a.NEXT_FLOW IN ( ''S53'' ) 
+	AND a.MSG_ID = : "MSG_ID" 
+	AND a.AMT >= : "START_AMT" 
+	AND a.AMT <= : "END_AMT" 
+	AND a.ORG_ID = : "ORG_ID" 
+	AND a.TXN_STATUS =: "TXN_STATUS" 
+	AND a.MADE_USER <>: "HEAD.USER_ID" 
+	AND ( a.CHK_USER <> : "HEAD.USER_ID" OR a.CHK_USER IS NULL ) 
+	AND a.TXN_SEQ_NO LIKE ''%'' ||: "TXN_SEQ_NO" || ''%'' 
+ORDER BY
+	a.TXN_SEQ_NO DESC', null, 'CIPS', null, null, null, null, null, null, null, null);
+	COMMIT;
 --数据字典
 delete from GPAY_BASE_DIC where GROUP_ID = '050129_0000';
 INSERT INTO GPAY_BASE_DIC (SYS_ID, CORP_ID, GROUP_ID, DATA_SORT_ID, GROUP_DESC, DATA_VALUE, DATA_DESC, RSV1, RSV2, RSV3, RSV4, RSV5, DATA_DESC_EN) VALUES ('05', '0000', '050129_0000', 2, '收费方式111/113', 'CRED', '贷方承担', null, null, null, null, null, 'Settled through a clearing system');
