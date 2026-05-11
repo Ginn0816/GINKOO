@@ -1,3 +1,121 @@
+--金融机构来账补充录入查询SQL CIPS114.ORI MSG TYPE-->CIPS114.ORGNL MSG NM ID
+delete from G_INQ_CFG where SQL_ID='050159801';
+INSERT INTO G_INQ_CFG (CORP_ID, SQL_ID, SQL_STRING, DETAIL_SQL_STRING, SYSTEM, REMARKS, UPD_TIME, CRT_TIME, RSV1, RSV2, RSV3, RSV4, RSV5) VALUES ('ANZ', '050159801', 'SELECT
+	a.txn_seq_no,
+	a.msg_no,
+	a.center_date,
+	a.txn_dir,
+	a.msg_id,
+	a.amt,
+	a.pboc_status,
+	a.comm_status,
+	a.payer_actno,
+	a.payer_name,
+	a.payee_actno,
+	a.payee_name,
+	a.snd_st_brno AS op_st_brno,
+	a.snd_st_brname AS op_st_brname
+FROM
+	cips_txn a
+	LEFT JOIN CIPS_114 b ON a.TXN_SEQ_NO=b.TXN_SEQ_NO
+WHERE
+	a.txn_dir = ''2''
+	AND (a.msg_no = ''112'' OR ( a.MSG_NO = ''114'' AND b.ORGNL_MSG_NM_ID IN (''cips.112.001.01'', ''cips.112.001.02'')))
+	AND a.NEXT_FLOW = ''S50''
+	AND a.MSG_ID = : "MSG_ID"
+	AND a.AMT >= : "START_AMT"
+	AND a.AMT <= : "END_AMT"
+	AND a.ORG_ID = : "HEAD.ORG_ID"
+	AND ( ( ''0'' = : "IS_VIP" ) OR ( ''1'' = : "IS_VIP" AND a.IS_VIP = : "IS_VIP" ) )
+	AND a.TXN_SEQ_NO LIKE ''%'' ||: "TXN_SEQ_NO" || ''%''
+ORDER BY
+	a.TXN_SEQ_NO DESC', null, 'CIPS', null, null, null, null, null, null, null, null);
+	
+--CIPS_112.PAYEE_BRNO-->CIPS_112.IM_AGT1_ID,CIPS_112.IM_AGT2_ID,CIPS_112.IM_AGT3_ID,CIPS_112.CDTR_AGT_ID、CIPS_112.PAYEE_BRNAME移除
+delete from G_INQ_CFG where SQL_ID='050159803';
+INSERT INTO G_INQ_CFG (CORP_ID, SQL_ID, SQL_STRING, DETAIL_SQL_STRING, SYSTEM, REMARKS, UPD_TIME, CRT_TIME, RSV1, RSV2, RSV3, RSV4, RSV5) VALUES ('ANZ', '050159803', 'select A.IM_AGT1_ID,A.IM_AGT2_ID,A.IM_AGT3_ID,A.CDTR_AGT_ID from CIPS_112 A,CIPS_TXN B
+                                   where A.SEQ_NO = B.SEQ_NO AND (B.COMPL_TYPE <> ''5'' OR B.COMPL_TYPE IS NULL) AND A.TXN_SEQ_NO = :"TXN_SEQ_NO"
+                                   UNION ALL select A.PAYEE_BRNO,A.PAYEE_BRNAME from CIPS_112_REMIT A,CIPS_TXN_REMIT B
+                                                                                where A.SEQ_NO = B.SEQ_NO AND A.TXN_SEQ_NO = :"TXN_SEQ_NO";', null, 'CIPS', null, null, null, null, null, null, null, null);
+
+---CIPS114.ORI MSG TYPE-->CIPS114.ORGNL MSG NM ID
+delete from G_INQ_CFG where SQL_ID='050139804';
+INSERT INTO G_INQ_CFG (CORP_ID, SQL_ID, SQL_STRING, DETAIL_SQL_STRING, SYSTEM, REMARKS, UPD_TIME, CRT_TIME, RSV1, RSV2, RSV3, RSV4, RSV5) VALUES ('ANZ', '050139804', 'SELECT
+	a.TXN_SEQ_NO,
+	a.ORGNL_MSG_NM_ID,
+	b.PAYER_ACTNO
+FROM
+	CIPS_114 a
+	LEFT JOIN CIPS_TXN b ON a.ORGNL_MSG_NM_ID = b.MSG_ID
+WHERE
+	 a.TXN_SEQ_NO = : "TXN_SEQ_NO"', null, 'CIPS', null, null, null, null, null, null, null, null);
+
+
+
+--金融机构来账补充审核页面查询sql CIPS114.ORI MSG TYPE-->CIPS114.ORGNL MSG NM ID
+delete G_INQ_CFG where SQL_ID='050169801';
+INSERT INTO G_INQ_CFG (CORP_ID, SQL_ID, SQL_STRING, DETAIL_SQL_STRING, SYSTEM, REMARKS, UPD_TIME, CRT_TIME, RSV1, RSV2, RSV3, RSV4, RSV5) VALUES ('ANZ', '050169801', 'SELECT
+	a.txn_seq_no,
+	a.msg_id,
+	a.msg_no,
+	a.amt,
+	a.payer_actno,
+	a.payer_name,
+	a.payee_actno,
+	a.payee_name,
+	a.rcv_st_brno AS op_st_brno,
+	a.snd_st_brname AS op_st_brname
+FROM
+	cips_txn a
+	LEFT JOIN CIPS_114 b ON a.TXN_SEQ_NO=b.TXN_SEQ_NO
+WHERE
+	a.txn_dir = ''2''
+	AND (a.msg_no = ''112'' OR ( a.MSG_NO = ''114'' AND b.ORGNL_MSG_NM_ID IN (''cips.112.001.02'', ''cips.112.001.02'')))
+	AND a.NEXT_FLOW IN ( ''S19'' )
+	AND a.MSG_ID = : "MSG_ID"
+	AND a.AMT >=: "START_AMT"
+	AND a.AMT <=: "END_AMT"
+	AND a.ORG_ID =: "ORG_ID"
+	AND a.TXN_STATUS =: "TXN_STATUS"
+	AND a.MADE_USER <>: "HEAD.USER_ID"
+	AND a.TXN_SEQ_NO LIKE ''%'' ||: "TXN_SEQ_NO" || ''%''
+ORDER BY
+	a.TXN_SEQ_NO DESC', null, 'CIPS', null, null, null, null, null, null, null, null);
+	
+--金融机构来账补充授权页面查询sql  CIPS114.ORI MSG TYPE-->CIPS114.ORGNL MSG NM ID
+delete from G_INQ_CFG where SQL_ID='050189801';
+INSERT INTO G_INQ_CFG (CORP_ID, SQL_ID, SQL_STRING, DETAIL_SQL_STRING, SYSTEM, REMARKS, UPD_TIME, CRT_TIME, RSV1, RSV2, RSV3, RSV4, RSV5) VALUES ('ANZ', '050189801', 'SELECT
+	a.txn_seq_no,
+	a.msg_no,
+	a.center_date,
+	a.txn_dir,
+	a.msg_id,
+	a.amt,
+	a.pboc_status,
+	a.comm_status,
+	a.payer_actno,
+	a.payer_name,
+	a.payee_actno,
+	a.payee_name,
+	a.rcv_st_brno AS op_st_brno,
+	a.snd_st_brname AS op_st_brname
+FROM
+	cips_txn a
+		LEFT JOIN CIPS_114 b ON a.TXN_SEQ_NO=b.TXN_SEQ_NO
+WHERE
+	a.txn_dir = ''2''
+	AND (a.msg_no = ''112'' OR ( a.MSG_NO = ''114'' AND b.ORGNL_MSG_NM_ID IN (''cips.112.001.02'', ''cips.112.001.02'')))
+	AND a.NEXT_FLOW IN ( ''S53'' )
+	AND a.MSG_NO = : "MSG_NO"
+	AND a.MSG_ID = : "MSG_ID"
+	AND a.AMT >= : "START_AMT"
+	AND a.AMT <=: "END_AMT"
+	AND a.TXN_STATUS =: "TXN_STATUS"
+	AND a.MADE_USER <>: "HEAD.USER_ID"
+	AND ( a.CHK_USER <> : "HEAD.USER_ID" OR a.CHK_USER IS NULL )
+	AND a.TXN_SEQ_NO LIKE ''%'' ||: "TXN_SEQ_NO" || ''%''
+ORDER BY
+	a.TXN_SEQ_NO DESC', null, 'CIPS', null, null, null, null, null, null, null, null);
 --业务权限表
 update CIPS_AUTH set  CCY = 'CNY' where 1=1;
 --DBI.SQL
